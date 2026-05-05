@@ -17,6 +17,12 @@
           "dsfs",
           "dsf"
         ]
+      },
+      {
+        "group": "Soup Core",
+        "pages": [
+          "kits"
+        ]
       }
     ]
   },

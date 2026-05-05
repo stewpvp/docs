@@ -1,0 +1,825 @@
+---
+title: "Kits"
+description: "Configure and document every Soup FFA kit available on stew.gg."
+icon: "shield"
+---
+
+## Why use a kit system?
+
+It's important to have a kit system in place to give Soup FFA more variety, replayability, and replay value. This is a gameplay system which lets players choose different playstyles while keeping the server balanced, competitive, and fun.
+
+## How does the kit system work?
+
+The kit system lets staff create, edit, enable, disable, and manage kits directly in-game. Each kit can have its own icon, inventory contents, armor contents, potion effects, cooldown, lore, enabled status, and allowed users.
+
+## Configuring kits
+
+<Warning>
+  stew.gg kits are actively balanced and may change over time. Kit abilities, cooldowns, armor contents, inventory contents, potion effects, lore, and allowed-user access should be tested before release.
+</Warning>
+
+### Creating and managing kits
+
+Staff can create, delete, rename, and list kits using the kit management commands.
+
+<CodeGroup>
+
+```javascript Syntax
+  /kit create <name>
+  /kit delete <name>
+  /kit rename <oldName> <newName>
+  /kit list
+```
+
+```javascript Example
+  /kit create Stomper
+  /kit delete Stomper
+  /kit rename Stomper StomperV2
+  /kit list
+```
+
+</CodeGroup>
+
+<br />
+
+<Frame>
+  ![Kit Management Preview](./images/kits/kit-management.png)
+</Frame>
+
+### Setting the kit icon
+
+Set the icon of a kit to the item currently held in your hand.
+
+<CodeGroup>
+
+```javascript Syntax
+  /kit seticon <name>
+```
+
+```javascript Example
+  /kit seticon Stomper
+```
+
+</CodeGroup>
+
+<br />
+
+<Frame>
+  ![Kit Icon Preview](./images/kits/kit-icon.png)
+</Frame>
+
+### Setting kit contents
+
+Set the inventory contents of a kit using your current inventory.
+
+<Warning>
+  This is a dangerous configuration command. Incorrect inventory contents may create balance issues or give players unintended items.
+</Warning>
+
+<CodeGroup>
+
+```javascript Syntax
+  /kit setcontents <name>
+```
+
+```javascript Example
+  /kit setcontents Stomper
+```
+
+</CodeGroup>
+
+<br />
+
+<Frame>
+  ![Kit Contents Preview](./images/kits/kit-contents.png)
+</Frame>
+
+### Setting kit armor contents
+
+Set the armor contents of a kit using your current equipped armor.
+
+<Warning>
+  This should be tested before release. Incorrect armor contents may make a kit too weak, too strong, or unusable.
+</Warning>
+
+<CodeGroup>
+
+```javascript Syntax
+  /kit setarmorcontents <name>
+```
+
+```javascript Example
+  /kit setarmorcontents Stomper
+```
+
+</CodeGroup>
+
+<br />
+
+<Frame>
+  ![Kit Armor Preview](./images/kits/kit-armor.png)
+</Frame>
+
+### Setting kit cooldowns
+
+Set the cooldown duration of a kit.
+
+<CodeGroup>
+
+```javascript Syntax
+  /kit setcooldown <name> <duration>
+```
+
+```javascript Example
+  /kit setcooldown Stomper 30s
+```
+
+</CodeGroup>
+
+<br />
+
+<Frame>
+  ![Kit Cooldown Preview](./images/kits/kit-cooldown.png)
+</Frame>
+
+### Setting potion effects
+
+Set a kit's potion effects using your current active potion effects.
+
+<Warning>
+  Potion effects should be reviewed carefully. Permanent speed, strength, resistance, or regeneration effects can heavily affect Soup FFA balance.
+</Warning>
+
+<CodeGroup>
+
+```javascript Syntax
+  /kit setpotioneffects <name>
+```
+
+```javascript Example
+  /kit setpotioneffects Stomper
+```
+
+</CodeGroup>
+
+<br />
+
+<Frame>
+  ![Kit Potion Effects Preview](./images/kits/kit-potion-effects.png)
+</Frame>
+
+## Managing kit status
+
+### Toggling a kit
+
+Toggle whether a kit is enabled or disabled.
+
+<CodeGroup>
+
+```javascript Syntax
+  /kit toggleenabled <name>
+```
+
+```javascript Example
+  /kit toggleenabled Stomper
+```
+
+</CodeGroup>
+
+<br />
+
+<Frame>
+  ![Kit Toggle Preview](./images/kits/kit-toggle.png)
+</Frame>
+
+## Managing kit access
+
+### Allowing a player to use a kit
+
+Allow a specific player to use a kit.
+
+<Warning>
+  This command should only be used when a player is meant to receive access to a restricted kit.
+</Warning>
+
+<CodeGroup>
+
+```javascript Syntax
+  /kit addallowedplayer <name> <player>
+```
+
+```javascript Example
+  /kit addallowedplayer Stomper Steve
+```
+
+</CodeGroup>
+
+<br />
+
+<Frame>
+  ![Add Allowed Player Preview](./images/kits/add-allowed-player.png)
+</Frame>
+
+### Removing an allowed player
+
+Remove an allowed player from a kit.
+
+<CodeGroup>
+
+```javascript Syntax
+  /kit removeallowedplayer <name> <player>
+```
+
+```javascript Example
+  /kit removeallowedplayer Stomper Steve
+```
+
+</CodeGroup>
+
+<br />
+
+<Frame>
+  ![Remove Allowed Player Preview](./images/kits/remove-allowed-player.png)
+</Frame>
+
+### Listing allowed users
+
+List every player currently allowed to use a specific kit.
+
+<CodeGroup>
+
+```javascript Syntax
+  /kit listallowedusers <kit>
+```
+
+```javascript Example
+  /kit listallowedusers Stomper
+```
+
+</CodeGroup>
+
+<br />
+
+<Frame>
+  ![Allowed Users Preview](./images/kits/allowed-users.png)
+</Frame>
+
+## Editing kit lore
+
+### Adding lore lines
+
+Add a lore line to a kit. Lore is used to describe the kit in menus, selectors, and previews.
+
+<CodeGroup>
+
+```javascript Syntax
+  /kit addloreline <kit> <line>
+```
+
+```javascript Example
+  /kit addloreline Stomper Leap from above and crush nearby enemies.
+```
+
+</CodeGroup>
+
+<br />
+
+<Frame>
+  ![Add Lore Line Preview](./images/kits/add-lore-line.png)
+</Frame>
+
+### Removing lore lines
+
+Remove a lore line from a kit by its index.
+
+<CodeGroup>
+
+```javascript Syntax
+  /kit removeloreline <kit> <index>
+```
+
+```javascript Example
+  /kit removeloreline Stomper 1
+```
+
+</CodeGroup>
+
+<br />
+
+<Frame>
+  ![Remove Lore Line Preview](./images/kits/remove-lore-line.png)
+</Frame>
+
+## Available kits
+
+The following kits are available for Soup FFA. These are based around the classic Lunar-style SoupPvP kit format and can be configured using the commands above.
+
+<AccordionGroup>
+  <Accordion title="Default">
+    The standard Soup FFA kit. This should be the free starter kit available to every player.
+
+    <CodeGroup>
+
+    ```javascript Syntax
+    Default
+    ```
+
+    ```javascript Example
+    Default
+    ```
+
+    </CodeGroup>
+
+    Lore: `The standard Soup FFA starter kit.`
+  </Accordion>
+
+  <Accordion title="Archer">
+    A bow-focused kit that rewards players for creating distance and landing precise shots.
+
+    <CodeGroup>
+
+    ```javascript Syntax
+    Archer
+    ```
+
+    ```javascript Example
+    Archer
+    ```
+
+    </CodeGroup>
+
+    Lore: `Land precise shots from a distance.`
+  </Accordion>
+
+  <Accordion title="Avatar">
+    An elemental-style kit built around special utility abilities and creative combat effects.
+
+    <CodeGroup>
+
+    ```javascript Syntax
+    Avatar
+    ```
+
+    ```javascript Example
+    Avatar
+    ```
+
+    </CodeGroup>
+
+    Lore: `Control the fight with elemental power.`
+  </Accordion>
+
+  <Accordion title="Barbarian">
+    An aggressive pressure kit designed for close-range combat and overwhelming enemies.
+
+    <CodeGroup>
+
+    ```javascript Syntax
+    Barbarian
+    ```
+
+    ```javascript Example
+    Barbarian
+    ```
+
+    </CodeGroup>
+
+    Lore: `Rush enemies with heavy pressure.`
+  </Accordion>
+
+  <Accordion title="Batman">
+    A disruption-based kit designed around confusion, utility, and close-range pressure.
+
+    <CodeGroup>
+
+    ```javascript Syntax
+    Batman
+    ```
+
+    ```javascript Example
+    Batman
+    ```
+
+    </CodeGroup>
+
+    Lore: `Disrupt enemies with sneaky utility.`
+  </Accordion>
+
+  <Accordion title="Chemist">
+    A potion-based kit that uses splash effects to weaken enemies during fights.
+
+    <CodeGroup>
+
+    ```javascript Syntax
+    Chemist
+    ```
+
+    ```javascript Example
+    Chemist
+    ```
+
+    </CodeGroup>
+
+    Lore: `Weaken enemies with potion pressure.`
+  </Accordion>
+
+  <Accordion title="CopyCat">
+    A mimic-style kit that can copy or mirror another player's kit behavior.
+
+    <CodeGroup>
+
+    ```javascript Syntax
+    CopyCat
+    ```
+
+    ```javascript Example
+    CopyCat
+    ```
+
+    </CodeGroup>
+
+    Lore: `Mirror your enemies and adapt.`
+  </Accordion>
+
+  <Accordion title="Dwarf">
+    A tank-style kit built around durability, strength, or temporary defensive power.
+
+    <CodeGroup>
+
+    ```javascript Syntax
+    Dwarf
+    ```
+
+    ```javascript Example
+    Dwarf
+    ```
+
+    </CodeGroup>
+
+    Lore: `Tank hits and hold your ground.`
+  </Accordion>
+
+  <Accordion title="Enhancer">
+    A buff-based kit that improves the player's combat stats for a short period of time.
+
+    <CodeGroup>
+
+    ```javascript Syntax
+    Enhancer
+    ```
+
+    ```javascript Example
+    Enhancer
+    ```
+
+    </CodeGroup>
+
+    Lore: `Boost yourself during combat.`
+  </Accordion>
+
+  <Accordion title="Eskimo">
+    A control kit that can create an ice-based defensive zone and temporarily strengthen the player.
+
+    <CodeGroup>
+
+    ```javascript Syntax
+    Eskimo
+    ```
+
+    ```javascript Example
+    Eskimo
+    ```
+
+    </CodeGroup>
+
+    Lore: `Control space with icy defense.`
+  </Accordion>
+
+  <Accordion title="Fireman">
+    A fire-resistant kit designed to counter fire damage while creating unique weakness tradeoffs.
+
+    <CodeGroup>
+
+    ```javascript Syntax
+    Fireman
+    ```
+
+    ```javascript Example
+    Fireman
+    ```
+
+    </CodeGroup>
+
+    Lore: `Resist fire and stay in the fight.`
+  </Accordion>
+
+  <Accordion title="Fisherman">
+    A hook-based kit that can pull enemies toward the player.
+
+    <CodeGroup>
+
+    ```javascript Syntax
+    Fisherman
+    ```
+
+    ```javascript Example
+    Fisherman
+    ```
+
+    </CodeGroup>
+
+    Lore: `Hook enemies into your range.`
+  </Accordion>
+
+  <Accordion title="Grappler">
+    A mobility kit that uses grappling movement to reposition during fights.
+
+    <CodeGroup>
+
+    ```javascript Syntax
+    Grappler
+    ```
+
+    ```javascript Example
+    Grappler
+    ```
+
+    </CodeGroup>
+
+    Lore: `Reposition quickly with grappling movement.`
+  </Accordion>
+
+  <Accordion title="Jett">
+    A movement-based kit inspired by dash, smoke, and vertical mobility mechanics.
+
+    <CodeGroup>
+
+    ```javascript Syntax
+    Jett
+    ```
+
+    ```javascript Example
+    Jett
+    ```
+
+    </CodeGroup>
+
+    Lore: `Dash through fights with speed.`
+  </Accordion>
+
+  <Accordion title="Kangaroo">
+    A leap-based mobility kit that lets players quickly jump into or out of fights.
+
+    <CodeGroup>
+
+    ```javascript Syntax
+    Kangaroo
+    ```
+
+    ```javascript Example
+    Kangaroo
+    ```
+
+    </CodeGroup>
+
+    Lore: `Leap into or out of battle.`
+  </Accordion>
+
+  <Accordion title="Melon">
+    A specialty kit. Use this section to document the finalized Melon ability once it is configured.
+
+    <CodeGroup>
+
+    ```javascript Syntax
+    Melon
+    ```
+
+    ```javascript Example
+    Melon
+    ```
+
+    </CodeGroup>
+
+    Lore: `A specialty kit for Soup FFA.`
+  </Accordion>
+
+  <Accordion title="Ninja">
+    A fast-paced kit focused on movement, pressure, and aggressive chasing.
+
+    <CodeGroup>
+
+    ```javascript Syntax
+    Ninja
+    ```
+
+    ```javascript Example
+    Ninja
+    ```
+
+    </CodeGroup>
+
+    Lore: `Chase enemies with fast movement.`
+  </Accordion>
+
+  <Accordion title="Palioxis">
+    A mobility kit that gives players quick repositioning tools during combat.
+
+    <CodeGroup>
+
+    ```javascript Syntax
+    Palioxis
+    ```
+
+    ```javascript Example
+    Palioxis
+    ```
+
+    </CodeGroup>
+
+    Lore: `Reposition quickly during combat.`
+  </Accordion>
+
+  <Accordion title="Pro">
+    A progression-focused kit that can increase rewards, credits, or other kill-based benefits.
+
+    <CodeGroup>
+
+    ```javascript Syntax
+    Pro
+    ```
+
+    ```javascript Example
+    Pro
+    ```
+
+    </CodeGroup>
+
+    Lore: `Earn more through progression.`
+  </Accordion>
+
+  <Accordion title="Rogue">
+    A backstab kit that rewards players for attacking enemies from behind.
+
+    <CodeGroup>
+
+    ```javascript Syntax
+    Rogue
+    ```
+
+    ```javascript Example
+    Rogue
+    ```
+
+    </CodeGroup>
+
+    Lore: `Strike enemies from behind.`
+  </Accordion>
+
+  <Accordion title="Spiderman">
+    A web-based utility kit that can trap, slow, or disrupt enemies using cobweb mechanics.
+
+    <CodeGroup>
+
+    ```javascript Syntax
+    Spiderman
+    ```
+
+    ```javascript Example
+    Spiderman
+    ```
+
+    </CodeGroup>
+
+    Lore: `Trap enemies with web utility.`
+  </Accordion>
+
+  <Accordion title="Stomper">
+    A fall-damage kit that punishes enemies near the landing area when the player drops from height.
+
+    <CodeGroup>
+
+    ```javascript Syntax
+    Stomper
+    ```
+
+    ```javascript Example
+    Stomper
+    ```
+
+    </CodeGroup>
+
+    Lore: `Punish enemies by dropping from above.`
+  </Accordion>
+
+  <Accordion title="Switcheroo">
+    A position-swapping kit that lets players switch locations with enemies using special projectiles.
+
+    <CodeGroup>
+
+    ```javascript Syntax
+    Switcheroo
+    ```
+
+    ```javascript Example
+    Switcheroo
+    ```
+
+    </CodeGroup>
+
+    Lore: `Swap positions with your enemy.`
+  </Accordion>
+
+  <Accordion title="Torch">
+    A fire-based kit that can ignite nearby enemies or apply burning pressure during fights.
+
+    <CodeGroup>
+
+    ```javascript Syntax
+    Torch
+    ```
+
+    ```javascript Example
+    Torch
+    ```
+
+    </CodeGroup>
+
+    Lore: `Apply fire pressure during fights.`
+  </Accordion>
+
+  <Accordion title="Unicorn">
+    A specialty kit. Use this section to document the finalized Unicorn ability once it is configured.
+
+    <CodeGroup>
+
+    ```javascript Syntax
+    Unicorn
+    ```
+
+    ```javascript Example
+    Unicorn
+    ```
+
+    </CodeGroup>
+
+    Lore: `A specialty kit for Soup FFA.`
+  </Accordion>
+
+  <Accordion title="Vampire">
+    A sustain kit focused on healing, lifesteal, or kill-based recovery.
+
+    <CodeGroup>
+
+    ```javascript Syntax
+    Vampire
+    ```
+
+    ```javascript Example
+    Vampire
+    ```
+
+    </CodeGroup>
+
+    Lore: `Recover through combat sustain.`
+  </Accordion>
+
+  <Accordion title="Zeus">
+    A lightning-based kit that can strike enemies or locations with thunder abilities.
+
+    <CodeGroup>
+
+    ```javascript Syntax
+    Zeus
+    ```
+
+    ```javascript Example
+    Zeus
+    ```
+
+    </CodeGroup>
+
+    Lore: `Strike enemies with thunder.`
+  </Accordion>
+</AccordionGroup>
+
+## Viewing the kit configuration
+
+You can view every kit currently registered on the server.
+
+<CodeGroup>
+
+```javascript Syntax
+  /kit list
+```
+
+```javascript Example
+  /kit list
+```
+
+</CodeGroup>
+
+<br />
+
+<Frame>
+  ![Kit List Preview](./images/kits/kit-list.png)
+</Frame>
