@@ -1,0 +1,286 @@
+---
+title: "Guilds"
+icon: "house-person-leave"
+---
+
+> Create, manage, and interact with player guilds on the server.
+
+## Configuring guilds
+
+### Creating a guild
+
+This command is used to create a new guild with a unique name and a short chat tag.
+
+<Warning>
+  Guild names and tags must be unique across the server. If the name or tag is already taken, the creation will fail. The guild **name** and **tag** will be visible to all players in chat.
+</Warning>
+
+<CodeGroup>
+
+```javascript Syntax
+/g create (name) (tag)
+```
+
+```javascript Example
+/g create Nightfall NF
+```
+
+</CodeGroup>
+
+<br />
+
+<AccordionGroup>
+  <Accordion title="Name">
+    <CodeGroup>
+
+    ```javascript Syntax
+    /g rename (name)
+    ```
+
+    ```javascript Example
+    /g rename Nightfall
+    ```
+
+    </CodeGroup>
+  </Accordion>
+
+  <Accordion title="Tag">
+    <CodeGroup>
+
+    ```javascript Syntax
+    /g settag (tag)
+    ```
+
+    ```javascript Example
+    /g settag NF
+    ```
+
+    </CodeGroup>
+  </Accordion>
+
+  <Accordion title="Tag color">
+    The color of your guild tag shown in chat. Use `/g color` after creating your guild to set a color.
+
+    <CodeGroup>
+
+    ```javascript Syntax
+    /g color
+    ```
+
+    ```javascript Example
+    /g color
+    ```
+
+    </CodeGroup>
+  </Accordion>
+
+  <Accordion title="Disband">
+    Permanently disband your guild, removing all members and deleting all guild data. This cannot be undone.
+
+    <CodeGroup>
+
+    ```javascript Syntax
+    /g disband
+    ```
+
+    ```javascript Example
+    /g disband
+    ```
+
+    </CodeGroup>
+  </Accordion>
+</AccordionGroup>
+
+<Frame>
+  <img
+    src="images/guilds/create.png"
+    width="661"
+    height="190"
+    data-path="images/guilds/create.png"
+  />
+</Frame>
+
+### Inviting players
+
+This command is used to invite a player to your guild. The player must accept the invite before they are added.
+
+<CodeGroup>
+
+```javascript Syntax
+/g invite (player)
+```
+
+```javascript Example
+/g invite Steve
+```
+
+</CodeGroup>
+
+<br />
+
+<AccordionGroup>
+  <Accordion title="Player">
+    <CodeGroup>
+
+    ```javascript Syntax
+    /g uninvite (player)
+    ```
+
+    ```javascript Example
+    /g uninvite Steve
+    ```
+
+    </CodeGroup>
+  </Accordion>
+</AccordionGroup>
+
+<Frame>
+  <img
+    src="images/guilds/invite.png"
+    width="521"
+    height="172"
+    data-path="images/guilds/invite.png"
+  />
+</Frame>
+
+### Managing members
+
+These commands allow you to kick, promote, demote, and transfer leadership within your guild.
+
+<Info>
+  The `player` argument is the username of the guild member you want to target. Use `/g kick` to remove them, `/g promote` or `/g demote` to change their rank, or `/g transfer` to hand over guild leadership.
+</Info>
+
+<CodeGroup>
+
+```javascript Syntax
+/g kick (player)
+/g promote (player)
+/g demote (player)
+/g transfer (player)
+```
+
+```javascript Example
+/g kick Steve
+/g promote Alex
+```
+
+</CodeGroup>
+
+<br />
+
+<AccordionGroup>
+  <Accordion title="Player">
+    <CodeGroup>
+
+    ```javascript Syntax
+    /g kick (player)
+    ```
+
+    ```javascript Example
+    /g kick Steve
+    ```
+
+    </CodeGroup>
+  </Accordion>
+
+  <Accordion title="Action">
+    <CodeGroup>
+
+    ```javascript Syntax
+    /g promote (player)
+    /g demote (player)
+    /g transfer (player)
+    ```
+
+    ```javascript Example
+    /g promote Alex
+    ```
+
+    </CodeGroup>
+  </Accordion>
+</AccordionGroup>
+
+<Frame>
+  <img
+    src="images/guilds/members.png"
+    width="663"
+    height="194"
+    data-path="images/guilds/members.png"
+  />
+</Frame>
+
+### Guild communication
+
+You can send messages exclusively to your guild using guild chat, or broadcast a callout to all online players with your guild tag.
+
+<Info>
+  Use the `/g chat` command to toggle guild-only chat. Use `/g callout` to send a server-wide announcement branded with your guild tag.
+</Info>
+
+<CodeGroup>
+
+```javascript Syntax
+/g chat
+/g callout (message)
+```
+
+```javascript Example
+/g callout We are recruiting! Join Nightfall today.
+```
+
+</CodeGroup>
+
+<br />
+
+<Frame>
+  <img
+    src="images/guilds/chat.png"
+    width="545"
+    height="175"
+    data-path="images/guilds/chat.png"
+  />
+</Frame>
+
+## Viewing guild information
+
+You can use the `/g info`, `/g list`, and `/g who` commands to view information about guilds and players across the server.
+
+<Frame>
+  <img
+    src="images/guilds/info.png"
+    width="452"
+    height="331"
+    data-path="images/guilds/info.png"
+  />
+</Frame>
+
+## Tips for guild leaders
+
+<Steps>
+  <Step title="Recruiting members">
+    To grow your guild, invite players with `/g invite` and use `/g callout` to broadcast a recruitment message to all online players. Players can also join your guild themselves with `/g join` or leave with `/g leave`.
+
+    <Info>
+      The `player` argument must be a currently online player. Use `/g who
+      (player)` to check if a player already belongs to another guild before inviting them.
+    </Info>
+
+    <CodeGroup>
+
+    ```javascript Syntax
+    /g invite (player)
+    /g callout (message)
+    ```
+
+    ```javascript Example
+    /g invite Steve // Invites Steve to your guild
+    /g callout We are recruiting! // Broadcasts to all online players
+    ```
+
+    </CodeGroup>
+  </Step>
+  <Step title="Maintaining your guild">
+    Regularly review your roster with `/g info (guild)` and remove inactive members with `/g kick`. Use `/g promote` to give trusted members officer status so they can help manage invites and keep the guild active alongside you.
+  </Step>
+</Steps>
